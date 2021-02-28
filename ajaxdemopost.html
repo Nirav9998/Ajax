@@ -1,0 +1,32 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title>Ajex demo</title>
+	<script type="text/javascript">
+		function change(data)
+		{
+			
+			var c=new XMLHttpRequest();
+			c.open("POST","http://localhost/ajax/login1.php",true);
+			c.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			c.send("name="+data);
+	
+			c.onreadystatechange=function(){
+				if(c.readyState==4 && c.status==200)
+				{
+					document.getElementById("data").innerHTML=c.responseText;
+				}
+			}
+			
+		}	
+
+
+	</script>
+
+</head>
+<body>
+<input type="text" name="name" placeholder="Enter the name" id="name" onkeyup="change(this.value)">
+<span id="data"></span>
+<button type="submit" >Search</button>
+</body>
+</html>

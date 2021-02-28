@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Load </title>
+	<script src="jquery-3.5.0.js"></script>
+	<script >
+		$(document).ready(function()
+		{
+			$("#click").load("http://localhost/ajax/ajaxdemo.html", function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+      alert("External content loaded successfully!");
+    if(statusTxt == "error")
+      alert("Error: " + xhr.status + ": " + xhr.statusText);});	
+		});
+
+
+	</script>
+</head>
+<body>
+<button id="click">Load AJax with jquery</button>
+
+</body>
+</html>

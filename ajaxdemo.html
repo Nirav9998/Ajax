@@ -1,0 +1,30 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title>Ajex demo</title>
+	<script type="text/javascript">
+		function change()
+		{
+			var name=document.getElementById("name").value;
+			const c=new XMLHttpRequest();
+			c.open("GET","http://localhost/ajax/login.php?name="+name,true);
+			c.send();
+			c.onreadystatechange=function(){
+				if(c.readyState==4 && c.status==200)
+				{
+					document.getElementById("data").innerHTML=c.responseText;
+				}
+			}
+			
+		}	
+
+
+	</script>
+
+</head>
+<body>
+<input type="text" name="name" placeholder="Enter the name" id="name">
+<span id="data"></span>
+<button type="submit" onclick="change()">Search</button>
+</body>
+</html>
